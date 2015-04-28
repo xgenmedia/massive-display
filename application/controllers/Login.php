@@ -16,6 +16,12 @@ class Login extends Admin_Controller
 	{
 		$this->data['subview'] = 'login/index';	
 		// load view
-		$this->load->view('__layout_main',$this->data);
+		$this->load->view('__layout_login',$this->data);
+	}
+
+
+	public function logout()
+	{
+		redirect(array('login'));
 	}
 }

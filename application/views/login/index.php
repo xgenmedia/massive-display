@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
   	  <div class="col-sm-6 col-sm-offset-3">
-		<form class="form-horizontal" style="margin-top: 100px;">
+		<?php echo form_open('dashboard/index',array('class'=>'form-horizontal','style'=>'margin-top: 100px;'));?>
 		  <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 		    <div class="col-sm-10">
