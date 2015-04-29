@@ -18,7 +18,28 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </head>
   <body>
+    <div style="padding:50px 0px 20px 0px;"></div>
+    <div class="container-fluid">
+      <div class="row"> 
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Login</h4>
+                Please login with your credentials
+              </div>
+              <div class="modal-body">
+                  <?php $this->load->view($subview);?>
+              </div>
+              <div class="modal-footer">
+                  &copy; <?php echo $site_name;?>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+      </div>
+    </div>
+  
 
-		<?php $this->load->view($subview);?>
+		
   </body>
   </html>
