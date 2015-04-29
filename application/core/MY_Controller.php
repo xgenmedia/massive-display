@@ -10,6 +10,6 @@ class MY_Controller extends CI_Controller
 	{
 		parent::__construct();
 
-		$this->data['site_name'] ="My Site";
+		$this->data['site_name'] ="Massive Display";
 	}
 }
