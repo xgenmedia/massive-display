@@ -24,4 +24,7 @@ class Login extends Admin_Controller
 	{
 		redirect(array('login'));
 	}
+        public function test(){
+            
+        }
 }
