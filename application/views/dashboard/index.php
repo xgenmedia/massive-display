@@ -7,8 +7,8 @@
 		 <div class="col-sm-3">
 		 		<div class="list-group">
 				      <a href="#" class="list-group-item active">Resource</a>
-				      <a href="#" class="list-group-item">User Group</a>
-				      
+				      <a href="<?php echo base_url("group");?>" class="list-group-item">Group</a>
+				      <a href="<?php echo base_url("user");?>" class="list-group-item">User</a>
 				      <a href="#" class="list-group-item">Products Category</a>
 				      <a href="#" class="list-group-item ">Products</a>
 					  <a href="#" class="list-group-item">Clients</a>

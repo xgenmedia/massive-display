@@ -1096,9 +1096,16 @@ class CI_Form_validation {
 	 */
 	public function matches($str, $field)
 	{
-		return isset($this->_field_data[$field], $this->_field_data[$field]['postdata'])
-			? ($str === $this->_field_data[$field]['postdata'])
-			: FALSE;
+		// return isset($this->_field_data[$field], $this->_field_data[$field]['postdata'])
+		// 	? ($str === $this->_field_data[$field]['postdata'])
+		// 	: FALSE;
+		if ( ! isset($_POST[$field]))
+		{
+			return FALSE;
+		}
+
+		$field = $_POST[$field];
+		return ($str !== $field) ? FALSE : TRUE;
 	}
 
 	// --------------------------------------------------------------------

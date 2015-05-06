@@ -8,12 +8,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap</title>
     <!-- CSS -->
-        <!-- Bootstrap CSS -->
+           <!-- Bootstrap CSS -->
              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+           <!-- Dynamic CSS -->  
+           
     <!-- JS -->
-        <!-- jQuery -->
+           <!-- jQuery -->
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <!-- Bootstrap JS -->
+           <!-- Bootstrap JS -->
              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+           <!-- Dynamic JS -->
+             
   </head>
   <body>

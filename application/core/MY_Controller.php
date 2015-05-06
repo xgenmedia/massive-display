@@ -9,6 +9,8 @@ class MY_Controller extends CI_Controller
 	function __construct()
 	{
 			parent::__construct();
+		// load library
+			$this->load->library('form_validation');
 		// 	
 			$this->data['site_name'] ="Massive Display";
 			$this->data['title'] ="Massive Display";
