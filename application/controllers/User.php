@@ -80,7 +80,7 @@ class User extends MY_Controller
 						 'address'=>$this->input->post('address'),
 						 );
 			   if($this->input->post('password')!=''){
-			   	 $data = array_merge($data,array('password'=>$this->input->post('password')));
+			   	 $data = array_merge($data,array('password'=>$this->user_model->hash($this->input->post('password'))));
 			   }	
 				
 			   if($id) {
@@ -134,6 +134,32 @@ class User extends MY_Controller
         } else {
             return true;
         }
+	}
+
+
+	public function rights($id)
+	{
+			$this->load->model('user_manage_model');
+			// Checking is ID present 
+				if($id):
+					$userDetails = $this->user_model->get($id,TRUE);
+					$this->data['userDetails'] = $userDetails; 
+				    $this->data['id']=$userDetails->id;
+				    $this->data['group_id']=$userDetails->group_id;
+				 else:
+				     redirect('user');
+				endif;
+			// Search details of user , group etc	
+				$this->data['values'] = $this->user_manage_model->get_user_rights($this->data['group_id'],$this->data['id']);
+			// After POST	
+				if($_POST && sizeof($_POST)>0):
+				   $this->user_manage_model->upd_user_rights($this->data['group_id'],$this->data['id']);
+				   $this->session->set_flashdata('success_message', 'Successfully Updated');
+				   redirect('user/rights/'.$this->data['id']);
+				endif;
+			// Load View	
+				$this->data['subview']='user/rights';
+				$this->load->view('__layout_main',$this->data);
 	}
 
 

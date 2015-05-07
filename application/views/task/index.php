@@ -1,18 +1,17 @@
-
 <div class="container-fluid">
 	<ol class="breadcrumb" style="margin-top:80px;">
 		<li><a href="<?php echo base_url("dashboard");?>">Dashboard</a></li>
-  		<li class="active">User</li>
+  		<li class="active">Task</li>
   		<li class="pull-right">
-  			<a href="<?php echo base_url("user/edit");?>"><i class="glyphicon glyphicon-plus"></i> Add User</a>
+  			<a href="<?php echo base_url("task/edit");?>"><i class="glyphicon glyphicon-plus"></i> Add Task</a>
   		</li>
 	</ol>
 	<div class="row-fluid">
 		 <div class="col-sm-3">
 		 		<div class="list-group">
-				      <a href="<?php echo base_url("task");?>" class="list-group-item ">Resource</a>
-				      <a href="<?php echo base_url("group");?>" class="list-group-item"> Group</a>
-				      <a href="<?php echo base_url("user");?>" class="list-group-item active">User</a>
+				      <a href="<?php echo base_url("task");?>" class="list-group-item active">Resource</a>
+				      <a href="<?php echo base_url("group");?>" class="list-group-item "> Group</a>
+				      <a href="<?php echo base_url("user");?>" class="list-group-item">User</a>
 				      <a href="#" class="list-group-item">Products Category</a>
 				      <a href="#" class="list-group-item ">Products</a>
 					  <a href="#" class="list-group-item">Clients</a>
@@ -37,25 +36,26 @@
 		 			<thead>
 		 				<tr>
 		 					<th>Sl. No.</th>
-		 					<th>Name</th>
-		 					<th>Email</th>
-		 					<th>Phone</th>
+		 					<th>Title</th>
+		 					<th>Code</th>
+		 					<th>Active</th>
 		 					<th>Actions</th>
 		 				</tr>
 		 			</thead>
 		 			<tbody>
-		 				<?php foreach ($users as $key => $value) :?>
+		 				<?php 
+		 					$i = 1;
+		 					foreach ($tasks as $key => $task) :?>
 			 				<tr>
-			 					<td>1</td>
-			 					<td><?php echo e($value->name);?></td>
+			 					<td> <?php echo $i++; ?></td>
+			 					<td><?php echo e($task->title);?></td>
+			 					<td><?php echo e($task->code);?></td>
 			 					<td>
-			 						 <a href="mailto:<?php echo e($value->email);?>" > <?php echo e($value->email);?> </a>
+			 						<?php echo $task->is_active; ?>  	
 			 					</td>
-			 					<td><?php echo e($value->phone);?></td>
 			 					<td>
-			 						<a title="User Rights" href="<?php echo site_url("user/rights/".$value->id);?>" > <i class="glyphicon glyphicon-new-window"></i></a>
-			 						 <?php echo btn_edit("user/edit/".$value->id);?>
-			 						 <?php echo btn_delete("user/delete/".$value->id);?>
+			 						 <?php echo btn_edit("task/edit/".$task->id);?>
+			 						 <?php echo btn_delete("task/delete/".$task->id);?>
 			 					</td>
 			 				</tr>
 		 				<?php endforeach;?>

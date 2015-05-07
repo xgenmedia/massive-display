@@ -65,4 +65,28 @@ class Group extends MY_Controller
 		$this->data['subview'] = 'group/edit';
 		$this->load->view("__layout_main",$this->data);	
 	}
+
+
+	public function rights($id)
+	{
+			$this->load->model("user_manage_model");
+			// Check ID is empty or not
+				if($id):
+				    // Do something
+				 else:
+				     redirect('group');
+				endif;
+			// Search permission Record 
+				$this->data['values'] = $this->user_manage_model->get_group_rights($id);
+				$this->data['group_details'] = $this->user_manage_model->get_by('cfw_group', $id);
+			// IF Chenges	
+				if($_POST && sizeof($_POST)>0):
+				   $this->user_manage_model->upd_group_rights($id);
+				   $this->session->set_flashdata('success_message', 'Successfully Updated');
+				   redirect(array('group/rights/'.$id));
+				endif;
+			// Load View
+				$this->data['subview']='group/rights';
+				$this->load->view('__layout_main',$this->data);
+	}
 }

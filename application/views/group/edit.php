@@ -2,12 +2,12 @@
 	<ol class="breadcrumb" style="margin-top:80px;">
 		<li> <a href="<?php echo base_url("dashboard");?>" > Dashboard</a></li>
   		<li> <a href="<?php echo base_url("user");?>" > User</a></li>
-  		<li class="active"> Add User </li>
+  		<li class="active"> Add / Edit User </li>
 	</ol>
 	<div class="row-fluid">
 		 <div class="col-sm-3">
 		 		<div class="list-group">
-				      <a href="#" class="list-group-item ">Resource</a>
+				      <a href="<?php echo base_url("task");?>" class="list-group-item ">Resource</a>
 				      <a href="<?php echo base_url("group");?>" class="list-group-item active">Group</a>
 				      <a href="<?php echo base_url("user");?>" class="list-group-item ">User</a>
 				      <a href="#" class="list-group-item">Products Category</a>
