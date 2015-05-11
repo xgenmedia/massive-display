@@ -89,9 +89,11 @@ class MY_Model extends CI_Model {
 			  	 $this->db->delete($this->_table_name);
 		  	  } 
 
-			  	 
-		  	  
-		  	  
+		   }
+		   public function delete_by($arr)
+		   {
+		  	  	 $this->db->where($arr);
+			  	 $this->db->delete($this->_table_name);
 		   }
 
 		   public function get_by_like($where,$like,$single=FALSE)

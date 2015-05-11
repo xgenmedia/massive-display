@@ -1,10 +1,9 @@
-
 <div class="container-fluid">
 	<ol class="breadcrumb" style="margin-top:80px;">
-		<li><a href="<?php echo base_url("dashboard");?>">Dashboard</a></li>
-  		<li class="active">User</li>
+  		<li class=""><a href="<?php echo base_url("dashboard");?>">Dashboard</a></li>
+  		<li class="active">Client</li>
   		<li class="pull-right">
-  			<a href="<?php echo base_url("user/edit");?>"><i class="glyphicon glyphicon-plus"></i> Add User</a>
+  			<a href="<?php echo base_url("client/edit");?>"><i class="glyphicon glyphicon-plus"></i> Add Client</a>
   		</li>
 	</ol>
 	<div class="row-fluid">
@@ -31,18 +30,19 @@
 		 				</tr>
 		 			</thead>
 		 			<tbody>
-		 				<?php foreach ($users as $key => $value) :?>
+		 				<?php 
+		 					$i = 1;
+		 					foreach ($clients as $key => $client) :?>
 			 				<tr>
-			 					<td>1</td>
-			 					<td><?php echo e($value->name);?></td>
+			 					<td><?php echo $i++; ?></td>
+			 					<td><?php echo e($client->name);?></td>
 			 					<td>
-			 						 <a href="mailto:<?php echo e($value->email);?>" > <?php echo e($value->email);?> </a>
+			 						<a href="mailto:<?php echo $client->email;?>"><?php echo $client->email;?></a>
 			 					</td>
-			 					<td><?php echo e($value->phone);?></td>
+			 					<td><?php echo $client->phone;?></td>
 			 					<td>
-			 						<a title="User Rights" href="<?php echo site_url("user/rights/".$value->id);?>" > <i class="glyphicon glyphicon-new-window"></i></a>
-			 						 <?php echo btn_edit("user/edit/".$value->id);?>
-			 						 <?php echo btn_delete("user/delete/".$value->id);?>
+			 						 <?php echo btn_edit("client/edit/".$client->id);?>
+			 						 <?php echo btn_delete("client/delete/".$client->id);?>
 			 					</td>
 			 				</tr>
 		 				<?php endforeach;?>

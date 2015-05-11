@@ -32,7 +32,9 @@ class Group extends MY_Controller
 									   ));
 		$this->form_validation->set_rules($rules);
 		if($this->form_validation->run() == TRUE){
-				$data = array('title'=>$this->input->post('name'),
+				$data = array(
+						  'title'=>$this->input->post('name'),
+						  'parent_id'=>$this->input->post('parent_id'),
 						  'is_active'=>$this->input->post('is_active')
 						  );
 				if($id) {
@@ -58,9 +60,16 @@ class Group extends MY_Controller
 		} else {
 			$this->data['group'] = new stdClass;
 			$this->data['group']->title='';
+			$this->data['group']->parent_id=0;
 			$this->data['group']->is_active ='Y';
 		}
 
+		// Parent Group search
+			 $this->data['pGroups'][0] = 'None';
+			 $pGroups = $this->group_model->get_by(array('is_deleted'=>'N'));
+			 foreach ($pGroups as $key => $group) {
+			 	$this->data['pGroups'][$group->id] = $group->title;
+			 }
 		// Load view
 		$this->data['subview'] = 'group/edit';
 		$this->load->view("__layout_main",$this->data);	

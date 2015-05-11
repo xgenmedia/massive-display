@@ -1,25 +1,12 @@
 <div class="container-fluid">
 	<ol class="breadcrumb" style="margin-top:80px;">
 		<li> <a href="<?php echo base_url("dashboard");?>" > Dashboard</a></li>
-  		<li> <a href="<?php echo base_url("user");?>" > User</a></li>
-  		<li class="active"> Add / Edit User </li>
+  		<li> <a href="<?php echo base_url("group");?>" > Group</a></li>
+  		<li class="active"> Add / Edit Group </li>
 	</ol>
 	<div class="row-fluid">
 		 <div class="col-sm-3">
-		 		<div class="list-group">
-				      <a href="<?php echo base_url("task");?>" class="list-group-item ">Resource</a>
-				      <a href="<?php echo base_url("group");?>" class="list-group-item active">Group</a>
-				      <a href="<?php echo base_url("user");?>" class="list-group-item ">User</a>
-				      <a href="#" class="list-group-item">Products Category</a>
-				      <a href="#" class="list-group-item ">Products</a>
-					  <a href="#" class="list-group-item">Clients</a>
-					  <a href="#" class="list-group-item">Dept</a>
-					  <a href="#" class="list-group-item">Employee</a>
-					  <a href="#" class="list-group-item">Project</a>
-					  <a href="#" class="list-group-item">Quotations</a>
-					  <a href="#" class="list-group-item">Approve Project</a>
-					  <a href="#" class="list-group-item">Settings</a>
-				</div>
+		 		<?php $this->load->view("components/left_side_bar");?>
 		 </div>
 		 <div class="col-sm-9">
 		 			<?php echo validation_errors(); ?>
@@ -29,6 +16,12 @@
 					    <label for="name" class="col-sm-2 control-label">Name</label>
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="<?php echo $group->title;?>">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="parent_id" class="col-sm-2 control-label">Parent Group</label>
+					    <div class="col-sm-10">
+					        <?php echo form_dropdown("parent_id",$pGroups,$group->parent_id,array('class'=>'form-control'));?>
 					    </div>
 					  </div>
 					  <div class="form-group">

@@ -1,25 +1,12 @@
 <div class="container-fluid">
 	<ol class="breadcrumb" style="margin-top:80px;">
 		<li> <a href="<?php echo base_url("dashboard");?>" > Dashboard</a></li>
-  		<li> <a href="<?php echo base_url("user");?>" > User</a></li>
-  		<li class="active"> Add User </li>
+  		<li> <a href="<?php echo base_url("task");?>" > Resource</a></li>
+  		<li class="active"> Add / Edit Resource</li>
 	</ol>
 	<div class="row-fluid">
 		 <div class="col-sm-3">
-		 		<div class="list-group">
-				      <a href="<?php echo base_url("task");?>" class="list-group-item active">Resource</a>
-				      <a href="<?php echo base_url("group");?>" class="list-group-item ">Group</a>
-				      <a href="<?php echo base_url("user");?>" class="list-group-item ">User</a>
-				      <a href="#" class="list-group-item">Products Category</a>
-				      <a href="#" class="list-group-item ">Products</a>
-					  <a href="#" class="list-group-item">Clients</a>
-					  <a href="#" class="list-group-item">Dept</a>
-					  <a href="#" class="list-group-item">Employee</a>
-					  <a href="#" class="list-group-item">Project</a>
-					  <a href="#" class="list-group-item">Quotations</a>
-					  <a href="#" class="list-group-item">Approve Project</a>
-					  <a href="#" class="list-group-item">Settings</a>
-				</div>
+		 		<?php $this->load->view("components/left_side_bar");?>
 		 </div>
 		 <div class="col-sm-9">
 		 	<?php echo validation_errors(); ?>

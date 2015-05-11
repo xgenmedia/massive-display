@@ -1,10 +1,9 @@
-
 <div class="container-fluid">
 	<ol class="breadcrumb" style="margin-top:80px;">
 		<li><a href="<?php echo base_url("dashboard");?>">Dashboard</a></li>
-  		<li class="active">User</li>
+  		<li class="active">Project</li>
   		<li class="pull-right">
-  			<a href="<?php echo base_url("user/edit");?>"><i class="glyphicon glyphicon-plus"></i> Add User</a>
+  			<a href="<?php echo base_url("project/edit");?>"><i class="glyphicon glyphicon-plus"></i> Add Project</a>
   		</li>
 	</ol>
 	<div class="row-fluid">
@@ -24,25 +23,26 @@
 		 			<thead>
 		 				<tr>
 		 					<th>Sl. No.</th>
-		 					<th>Name</th>
-		 					<th>Email</th>
-		 					<th>Phone</th>
+		 					<th>Code</th>
+		 					<th>Created Date</th>
+		 					<th>Active</th>
 		 					<th>Actions</th>
 		 				</tr>
 		 			</thead>
 		 			<tbody>
-		 				<?php foreach ($users as $key => $value) :?>
+		 				<?php 
+		 					$i = 1;
+		 					foreach ($projects as $key => $project) :?>
 			 				<tr>
-			 					<td>1</td>
-			 					<td><?php echo e($value->name);?></td>
+			 					<td> <?php echo $i++; ?></td>
+			 					<td><?php echo e($project->code);?></td>
+			 					<td><?php echo e($project->created_date);?></td>
 			 					<td>
-			 						 <a href="mailto:<?php echo e($value->email);?>" > <?php echo e($value->email);?> </a>
+			 						<?php echo $project->is_active; ?>  	
 			 					</td>
-			 					<td><?php echo e($value->phone);?></td>
 			 					<td>
-			 						<a title="User Rights" href="<?php echo site_url("user/rights/".$value->id);?>" > <i class="glyphicon glyphicon-new-window"></i></a>
-			 						 <?php echo btn_edit("user/edit/".$value->id);?>
-			 						 <?php echo btn_delete("user/delete/".$value->id);?>
+			 						 <?php echo btn_edit("project/edit/".$project->id);?>
+			 						 <?php echo btn_delete("project/delete/".$project->id);?>
 			 					</td>
 			 				</tr>
 		 				<?php endforeach;?>
